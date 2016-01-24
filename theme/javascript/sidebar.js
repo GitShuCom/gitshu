@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var _ = require('lodash');
+require("nicescroll");
 
 var storage = require('./storage');
 var platform = require('./platform');
@@ -15,6 +16,9 @@ function toggleSidebar(_state, animation) {
     state.$book.toggleClass('with-summary', _state);
 
     storage.set('sidebar', isOpen());
+    if(isOpen()) {
+        niceScroll();
+    }
 }
 
 // Return true if sidebar is open
@@ -24,6 +28,8 @@ function isOpen() {
 
 // Prepare sidebar: state and toggle button
 function init() {
+    niceScroll();
+
     // Init last state if not mobile
     if (!platform.isMobile()) {
         toggleSidebar(storage.get('sidebar', true), false);
@@ -48,9 +54,18 @@ function filterSummary(paths) {
     });
 }
 
+function niceScroll() {
+    $(".nicescroll").niceScroll({
+                cursoropacitymax:"0.4",
+                cursorcolor:"#333",
+                cursorwidth: "8px",
+                cursorborder:"1px solid #FFF"});
+}
+
 module.exports = {
     init: init,
     isOpen: isOpen,
     toggle: toggleSidebar,
-    filter: filterSummary
+    filter: filterSummary,
+    niceScroll: niceScroll
 };

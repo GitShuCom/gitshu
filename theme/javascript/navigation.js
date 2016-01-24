@@ -4,6 +4,7 @@ var url = require('url');
 var events = require('./events');
 var state = require('./state');
 var loading = require('./loading');
+var sidebar = require('./sidebar');
 
 
 var usePushState = (typeof history.pushState !== 'undefined');
@@ -96,6 +97,11 @@ function preparePage(notify) {
 
     // Notify
     if (notify !== false) notifyPageChange();
+
+    // nicescroll
+    if(state.$book.hasClass('with-summary')) {
+        sidebar.niceScroll();
+    }
 }
 
 function isLeftClickEvent(e) {
