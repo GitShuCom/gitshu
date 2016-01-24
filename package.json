@@ -1,7 +1,7 @@
 {
     "name": "gitshu",
-    "version": "2.6.6",
-    "homepage": "https://www.gitshu.com",
+    "version": "2.6.7",
+    "homepage": "http://www.gitshu.com",
     "description": "Fork GitBook",
     "main": "lib/index.js",
     "dependencies": {
