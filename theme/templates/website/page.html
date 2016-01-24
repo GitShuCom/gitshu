@@ -65,21 +65,11 @@ require(["gitbook"], function(gitbook) {
     gitbook.start(config);
 });
 </script>
-<script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/jquery.nicescroll/3.6.6/jquery.nicescroll.min.js"></script>
-<script>
-    $(function(){
-        $(".nicescroll").niceScroll({
-            cursoropacitymax:"0.4",
-            cursorcolor:"#333",
-            cursorwidth: "8px",
-            cursorborder:"1px solid #FFF"});
-    });
-</script>
 {% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ staticBase }}/style.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     {% for resource in plugins.resources.css %}
         {% if resource.url %}
         <link rel="stylesheet" href="{{ resource.url }}">
